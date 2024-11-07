@@ -34,8 +34,21 @@ public class GradeBook {
                 case "2":
                     System.out.println("Goodbye!");
                     return;
-
-                // Challenge: write another option to allow updating grades for a selected student
+                case "3":
+                    System.out.println("Enter the student's last name to update their grade: ");
+                    String lastName = input.nextLine();
+                    for (Students student : students) {
+                        if(students.getLastName().equals(lastName)) {
+                            System.out.printf("Enter the new grade for %s %s: ", student.getLastName(), student.getFirstName());
+                            double newGradeLetter = input.nextDouble();
+                            student.setGrade(newGradeLetter);
+                            System.out.println("Grade updated successfully!")
+                            input.nextLine();
+                            break;
+                        }
+                    }
+                        }
+                    }
             }
         }
     }
