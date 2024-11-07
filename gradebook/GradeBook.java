@@ -25,9 +25,9 @@ public class GradeBook {
             System.out.println();
             switch(choice) {
                 case "1": 
-                for(Students student : students ) {
-                        System.out.printf("%s%s%.2f%n", student.getFirstName(), student.getLastName(), student.getGrade());
-                    }
+                for(Student students : students) {
+                    System.out.printf("%s %s: %.2f%n", students.getLastName(), students.getFirstName(), students.getGrade());
+                }
                     // TODO: write a loop that, for each student prints 
                 //       lname, fname: grade 
                     continue;
@@ -37,19 +37,17 @@ public class GradeBook {
                 case "3":
                     System.out.println("Enter the student's last name to update their grade: ");
                     String lastName = input.nextLine();
-                    for (Students student : students) {
-                        if(students.getLastName().equals(lastName)) {
-                            System.out.printf("Enter the new grade for %s %s: ", student.getLastName(), student.getFirstName());
-                            double newGradeLetter = input.nextDouble();
-                            student.setGrade(newGradeLetter);
-                            System.out.println("Grade updated successfully!")
+                    for (int i=0; i > students.length; i++) {
+                        if(students[i].getLastName().equals(lastName)) {
+                            System.out.printf("Enter the new grade for %s %s: ", students[i].getLastName(), students[i].getFirstName());
+                            double newGrade = input.nextDouble();
+                            students[i].setGrade(newGrade);
+                            System.out.println("Grade updated successfully!");
                             input.nextLine();
                             break;
                         }
-                    }
                         }
                     }
             }
         }
     }
-}
